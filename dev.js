@@ -10,6 +10,7 @@ const answer2 = fizzBuzz(exam2);
 console.log("answer2 : ", answer2);
 
 //----------------------------------    3    -------------------------------------//
+//check Palindrome
 const exam3_1 = "asd";
 const exam3_2 = "asa";
 const exam3_3 = 1112;
@@ -22,6 +23,12 @@ console.log("answer3_1 : ", answer3_1);
 console.log("answer3_2 : ", answer3_2);
 console.log("answer3_3 : ", answer3_3);
 console.log("answer3_4 : ", answer3_4);
+
+//find Palindrome
+const exam3_5_start = 1;
+const exam3_5_results = 100;
+const answer3_5 = findPalindrome(exam3_5_start, exam3_5_results);
+console.log("answer3_5 : ", answer3_5);
 
 //----------------------------------    4    -------------------------------------//
 const exam4_1 = ["alice", "bob", "trudy", "jack"];
@@ -89,6 +96,30 @@ function isPalindrome(word) {
     }
   }
   return word + " are " + (isPalindrome ? "Palindrome" : "not Palindrome");
+}
+
+function isPalindromeVer2(num) {
+  num = num.toString();
+  const length = num.length;
+  for (let i = 0; i < Math.floor(length / 2); i++) {
+    if (num[i] !== num[length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function findPalindrome(start, number) {
+  let answer = [];
+
+  while (answer.length < number) {
+    if (isPalindromeVer2(start)) {
+      answer.push(start.toString());
+    }
+    start++;
+  }
+
+  return answer;
 }
 
 //----------------------------------    4    -------------------------------------//
